@@ -1,0 +1,10 @@
+Replace Header with Nav.
+Nav should be the top element and not inside header.
+Header must be below navigation and contain h123456 tags.
+
+Find style standard for documenting and commenting CSS.
+https://www.google.lt/search?ei=AmCBW73XPOLirgSWwriwAg&q=good+documented+css+comment+author+&oq=good+documented+css+comment+author+&gs_l=psy-ab.3..33i21k1j33i160k1l2.2556.4430.0.4511.10.8.0.0.0.0.170.712.0j5.5.0....0...1.1.64.psy-ab..5.5.711...35i39k1.0.ORmLipZQ3yQ
+
+rename stylesheets according to the abilities of the device.
+
+Make headers and sections across css grid layout.
