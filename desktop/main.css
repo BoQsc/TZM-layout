@@ -1,0 +1,277 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:    The Zeitgeist Movement
+Version:    0.1
+Last change:    05/02/08 [fixed Float bug, vf]
+Assigned to:    Vitaly Friedman (vf), Sven Lennartz (sl)
+Primary use:    Magazine 
+
+This file uses css coding standards: 
+https://github.com/xfiveco/css-coding-standards
+https://perishablepress.com/obsessive-css-code-formatting-organization-comments-and-signatures/
+https://wordpress.stackexchange.com/questions/144099/which-details-are-required-for-style-css-file-header
+
+-------------------------------------------------------------------*/
+
+@import url('reset-browser-style.css');
+
+/* Free and Open-source Montserrat Font*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+
+
+
+
+
+/* ==========================================================================
+   The Holy Grail (Grid Layout)
+   ========================================================================== */
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 150px auto 150px;
+  grid-template-rows: repeat(4, minmax(100px, auto-fit));
+  /* If having nerve break down Look and allow: grid-gap: 1em; */
+}
+
+
+/* The default colors for the grid elements
+   ========================================================================== */
+
+nav,
+header,
+aside,
+section,
+article,
+footer {
+  background: #eaeaea;
+  padding: 1em;
+}
+
+nav, footer {
+  padding-bottom: 1.2em;
+  grid-column: 1 / 4;
+}
+
+
+/* Every element inside the Grid is set as Flexbox
+   ========================================================================== */
+
+.grid > * {
+	
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0; 
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+
+/* ==========================================================================
+   Aplying custom style to the elements inside Grid
+   ========================================================================== */
+
+
+
+/* Page Navigation at the top of the screen
+   ========================================================================== */
+nav[id=page-navigation] {
+	
+	position: sticky;
+	top: 0px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	background: white;
+	z-index: 1 !important;
+
+}
+
+
+nav[id=page-navigation] > ul {
+	
+	display: flex;
+	flex-direction: row; 
+	align-items: center;
+}
+
+/* Navigation Menu items */ 
+nav[id=page-navigation] > ul > li {
+	
+	display: flex;
+	padding-left: 1em;
+	padding-right: 1em;
+	flex-direction: column; 
+}
+
+nav[id=page-navigation] > ul > li > a {
+	
+	font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(0,0,0,.6) !important;
+	text-decoration: none !important;
+}
+ 
+
+/* Cross-fading logo */ 
+nav[id=page-navigation] > ul > li > a > img {
+	height: 70px;
+}
+
+nav[id=page-navigation] > ul > li > a > img[src="TZM_logo.png"] {
+	
+	  position: absolute;
+	  opacity: 0;
+}
+
+nav[id=page-navigation] > ul > li > a:hover 
+img[src="TZM_logo.png"] {
+	transition: opacity 0.2s ease-in;
+	opacity: 100;
+	
+}
+
+nav[id=page-navigation] > ul > li > a:hover 
+img[src="logo.png"] {
+	filter: blur(1.5px);
+	
+	
+}
+
+
+
+
+
+/* Hover effects applied to all navigation links 
+   and the last navigation link - Donate
+*/
+nav[id=page-navigation] > ul > li > a:hover, 
+nav[id=page-navigation] > ul > li:last-child a:hover {
+transition: color 0.2s ease-in;
+color: rgba(0,0,0,.3) !important;
+
+}
+
+/* The Donate button of navigation, 
+   also known as last inline-block in the navigation.
+*/
+
+nav[id=page-navigation] > ul > li:last-child {
+	
+	background: #0095df;
+	height: 42px; 
+	width: 130px;
+	border-radius: 6px;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+nav[id=page-navigation] > ul > li:last-child > a {
+	
+	color: white !important;
+	-webkit-font-smoothing: antialiased;
+
+}
+
+/*TODO: implement hoverable menu dropdown, padding-top closes menu 
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown_hover */
+
+
+/* navigation dialog is not on the new line cause it has flex container*/
+
+
+/* remove navigation dialog from the flow */
+/* https://www.google.lt/search?q=css+make+outside+flow&oq=css+make+outside+flow+&aqs=chrome..69i57j0l5.4901j0j7&sourceid=chrome&ie=UTF-8 */
+
+
+nav[id=page-navigation] > ul > li {
+	position: relative;
+	top: 0;
+	
+	justify-content: space-around;
+    height: 50px;
+}
+
+ul#navigation-dialog {
+	visibility:hidden;
+	opacity: 0;
+	position: absolute;
+	top: 50px;
+	
+	border-radius: 6px;
+	display: grid;
+	flex-direction: column;
+	justify-content: center;
+    padding: 16px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+    background: white;
+    box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.5);
+	z-index: 1;
+	
+	
+}
+
+
+
+/* BUG */
+
+/* On hover over navigation item - open navigation dialog*/
+nav[id=page-navigation] > ul > li:hover 
+ul#navigation-dialog {
+	transition: opacity 0.2s ease-in;
+	opacity: 100;
+	visibility:visible;
+
+	
+}
+
+
+ul#navigation-dialog > li {
+		display: flex;
+		justify-content: center;
+	    width: 170px;
+		height: 50px;
+	
+}
+
+ul#navigation-dialog > li:hover {
+	transition: background 0.2s ease-in;
+	background: rgba(0,0,0,0.03); 
+	
+	
+}
+
+ul#navigation-dialog > li > a {
+	
+	/* align text inside element*/
+	text-align: left;
+	width: 100%; 
+	height: 100%;
+    display: flex;
+	align-items: center;
+	padding-left: 11px;
+	
+	font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	
+	color: rgba(0,0,0,0.6) !important;
+	text-decoration: none !important;
+}
+
+
+
+/* Page header below Navigation
+   ========================================================================== */
+
+header {
+  background-image: url("home-bg.jpg");
+  height: 801px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}

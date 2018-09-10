@@ -1,0 +1,59 @@
+/*------------------------------------------------------------------
+[Modern Browsers: Default Style Unset Stylesheet]
+
+Project:    The Zeitgeist Movement Stylesheet rewrite
+Version:    0.1
+Author:    Vaidas Pale (vp)
+Primary use:    Modern Browsers
+Source:    https://benfrain.com/a-modern-css-reset-with-caveats/
+Unsupported:     Microsoft Edge
+
+This file uses css coding standards: 
+https://github.com/xfiveco/css-coding-standards
+https://perishablepress.com/obsessive-css-code-formatting-organization-comments-and-signatures/
+https://wordpress.stackexchange.com/questions/144099/which-details-are-required-for-style-css-file-header
+
+-------------------------------------------------------------------*/
+
+
+/* ==========================================================================
+   Unset default browser style - modern css reset.
+   ========================================================================== */
+
+   
+* {
+    all: unset;
+}
+
+
+/* Make HyperText Markup metadata Tags invisible on the page
+   ========================================================================== */
+
+base, basefont, datalist, head, meta, script, style, title,
+noembed, param, template {
+    display: none;
+}
+
+
+/* Make default: every link appear as usual
+   ========================================================================== */
+
+a {
+	cursor: pointer;
+    text-decoration: underline;
+    color: -webkit-link;
+}
+
+/* Make every id element highlighted after linking to it 
+   https://stackoverflow.com/questions/30320131/can-css-find-an-element-that-has-any-id/30320171#30320171
+*/
+[id]:target {
+	background: blue;
+	
+}
+
+
+/* Natural border box */
+* {
+    box-sizing: border-box;
+}
