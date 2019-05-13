@@ -1,3 +1,3 @@
 # TZM-layout
 
-![latest screencast](../Screencast.webm)
+![latest screencast](../.github/Screencast.webm)
