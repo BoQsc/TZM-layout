@@ -1,3 +1,3 @@
 # TZM-layout
 
-![latest screencast](../.github/Screencast.webm)
+![latest screencast](../.github/screencast.gif)
